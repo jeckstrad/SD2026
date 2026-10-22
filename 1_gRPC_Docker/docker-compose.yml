@@ -5,32 +5,17 @@ services:
     image: grpc-img
     container_name: servidor
     hostname: servidor
-    command: ["python3", "server.py"]
-    networks: [grpc-net]
+    command: [ "python3", "server.py" ]
+    networks: [ grpc-net ]
 
   cliente1:
     build: .
     image: grpc-img
-    container_name: cliente1
-    hostname: cliente1
-    command: ["python3", "client.py"]
+    command: [ "python3", "client.py" ]
     environment:
       - SERVIDOR=servidor:50051
-    depends_on: [servidor]
-    networks: [grpc-net]
-    
-  cliente2:
-    
-    
-    build: .
-    image: grpc-img
-    container_name: cliente2
-    hostname: cliente2
-    command: ["python3", "client.py"]
-    environment:
-      - SERVIDOR=servidor:50051
-    depends_on: [servidor]
-    networks: [grpc-net]
+    depends_on: [ servidor ]
+    networks: [ grpc-net ]
 
 networks:
   grpc-net:

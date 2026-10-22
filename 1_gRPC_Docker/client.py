@@ -8,7 +8,8 @@ import saludo_pb2
 import saludo_pb2_grpc
 
 # Nombre del contenedor servidor dentro de la red de Docker
-SERVIDOR = os.environ.get("SERVIDOR", "servidor:50051")
+SERVIDOR = os.environ.get("SERVIDOR")
+
 
 
 def ciclo():
